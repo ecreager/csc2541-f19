@@ -9,6 +9,11 @@ export VENVDIR=~/venv/csc2541-f19
 mkdir $(dirname $VENVDIR)
 mkdir $VENVDIR
 python3 -m venv $VENVDIR
-source $VENVDIR/bin/activate
+source $VENVDIR/bin/activate  # use this command to "activate" the environment
+pip install --upgrade pip
 pip install -r requirements.txt
+echo done with setup
 ```
+
+Executing the above commands may take some time.
+Halting `pip` commands using `Ctrl+C` is _not_ recommended.
