@@ -9,6 +9,6 @@ export VENVDIR=~/venv/csc2541-f19
 mkdir $(dirname $VENVDIR)
 mkdir $VENVDIR
 python3 -m venv $VENVDIR
-source ~/$VENVDIR/bin/activate
+source $VENVDIR/bin/activate
 pip install -r requirements.txt
 ```
