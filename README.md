@@ -6,6 +6,7 @@ Virtual environment instructions (optional, requires Python 3.6+):
 ```
 #!/bin/bash
 export VENVDIR=~/venv/csc2541-f19
+mkdir $(dirname $VENVDIR)
 mkdir $VENVDIR
 python -m venv $VENVDIR
 source ~/$VENVDIR/bin/activate
