@@ -8,7 +8,7 @@ Virtual environment instructions (optional, requires Python 3.6+):
 export VENVDIR=~/venv/csc2541-f19
 mkdir $(dirname $VENVDIR)
 mkdir $VENVDIR
-python -m venv $VENVDIR
+python3 -m venv $VENVDIR
 source ~/$VENVDIR/bin/activate
 pip install -r requirements.txt
 ```
