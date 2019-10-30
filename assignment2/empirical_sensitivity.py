@@ -130,8 +130,9 @@ def main(n, runs, epochs, lr, batch_size, model_seed, lmbda):
     list_of_empirical_sensitivies = []
     list_of_neighboring_examples = []
     for data_seed in range(runs):
+        # Want deterministic training, so don't shuffle the data
         loaders, neighboring_examples = get_data_loaders(data_seed, batch_size,
-                                                         num_train=n)
+                                                         num_train=n, shuffle=False)
         sensitivity = compute_empricial_sensivity(
             loaders['train'], loaders['neighbor'],
             epochs, lr, lmbda, model_seed)
@@ -161,9 +162,9 @@ if __name__ == '__main__':
         help='number of epochs used to train the logistic regressor',
         default=100)
     parser.add_argument(
-        '--lr', type=float, help='learning rate', default=0.1)
+        '--lr', type=float, help='learning rate', default=10.0)
     parser.add_argument(
-        '--batch_size', type=int, help='batch size', default=256)
+        '--batch_size', type=int, help='batch size', default=1000)
     parser.add_argument(
         '--model_seed', type=float, help='random seed for model initialization',
         default=0)

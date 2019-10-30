@@ -7,13 +7,13 @@ import torchvision
 import torchvision.transforms as transforms
 
 
-def get_data_loaders(seed, batch_size, num_train=13006, num_test=None):
+def get_data_loaders(seed, batch_size, num_train=13006, num_test=None, shuffle=True):
     """Returns data loaders for MNIST binary classification task: 1 vs 7.
 
     The data loaders are formatted in a dict like this
     {
       "train": the train set,
-      "neighbor": a dataset neighoring the train set,
+      "neighbor": a dataset neighboring the train set,
       "test": the test set
     }
     and have train set of size num_train, and test set 10% as big unless
@@ -90,15 +90,15 @@ def get_data_loaders(seed, batch_size, num_train=13006, num_test=None):
     # Data loader (input pipeline)
     train_loader = torch.utils.data.DataLoader(dataset=train_dataset,
                                                batch_size=batch_size,
-                                               shuffle=True)
+                                               shuffle=shuffle)
 
     neighbor_loader = torch.utils.data.DataLoader(dataset=neighbor_dataset,
                                                   batch_size=batch_size,
-                                                  shuffle=True)
+                                                  shuffle=shuffle)
 
     test_loader = torch.utils.data.DataLoader(dataset=test_dataset,
                                               batch_size=batch_size,
-                                              shuffle=False)
+                                              shuffle=shuffle)
 
     loaders = dict(
         train=train_loader,
